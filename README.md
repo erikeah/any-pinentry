@@ -1,12 +1,12 @@
 # AnyPinentry
 AnyPinentry is a wrapping interface to all kinds of prompts instead of gnupg's pinentry.
-You can now use any interface for password and confirmation prompts (`dmenu`, `rofi`, `read`, `systemd-ask-password`, `curses`, `etc`).
+You can now use any interface for password and confirmation prompts (`bemenu`, `rofi`, `read`, `systemd-ask-password`, `curses`, `etc`).
 
 > Note: This is NOT a complete replacement for pinentry programs but it should cover most use-cases. Report any issues you face so the program can be improved
 
 ## Dependencies
 * sh
-* dmenu with password patch (optional: for the default config only)
+* bemenu with password patch (optional: for the default config only)
 * notify-send (optional: for the default config only)
 
 ## Usage
@@ -21,6 +21,6 @@ You can now use any interface for password and confirmation prompts (`dmenu`, `r
 The following variables inside `./anypinentry` script file can be configured.
 You will need to use `AP_PROMPT`, `AP_YES`, `AP_NO`, `AP_ERROR` variables inside your actions.
 
-* `prompt_action` - Action to show a prompt asking for password (Example using dmenu with password patch - `dmenu -P -p "$AP_PROMPT"`)
-* `confirm_action` - Action to confirm something (YES or NO) (Example with dmenu - `echo -e "$AP_YES\n$AP_NO" | dmenu -p "$AP_PROMPT"`)
+* `prompt_action` - Action to show a prompt asking for password (Example using bemenu with password patch - `bemenu -x -p "$AP_PROMPT" < /dev/null`)
+* `confirm_action` - Action to confirm something (YES or NO) (Example with bemenu - `echo -e "$AP_YES\n$AP_NO" | bemenu -p "$AP_PROMPT" < /dev/null`)
 * `display_error_action` - Action to display error messages to user (Example with notify-send - `notify-send "$AP_ERROR"`)
